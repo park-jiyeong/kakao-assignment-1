@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-container">
+    <!-- 앱 제목 -->
+    <h1 class="app-title">Todo</h1>
+
+    <!--
+      일간 뷰 네비게이션.
+      이전/다음 버튼으로 currentSelectedDate를 하루 단위로 이동하고,
+      가운데 영역에 현재 선택된 날짜를 표시한다.
+    -->
+    <div class="date-navigator">
+      <button type="button" class="date-nav-button" id="prevDateButton" aria-label="이전 날짜">‹</button>
+      <span class="current-date" id="currentDateDisplay"></span>
+      <button type="button" class="date-nav-button" id="nextDateButton" aria-label="다음 날짜">›</button>
+    </div>
+
+    <!-- Todo 입력 영역: 텍스트 입력창과 추가 버튼 -->
+    <form class="todo-input-form" id="todoInputForm">
+      <input
+        type="text"
+        id="todoInput"
+        class="todo-input"
+        placeholder="할 일을 입력하세요"
+        autocomplete="off"
+      />
+      <button type="submit" class="add-button">추가</button>
+    </form>
+
+    <!-- 입력값이 비어있을 때 안내 메시지를 표시하는 영역 -->
+    <p class="input-warning" id="inputWarning"></p>
+
+    <!--
+      상태별 필터링 탭.
+      data-filter 속성으로 어떤 상태를 가리키는지 표시한다.
+      ('all' = 전체, 'active' = 진행 중, 'completed' = 완료)
+    -->
+    <div class="filter-tabs" id="filterTabs">
+      <button type="button" class="filter-tab is-active" data-filter="all">전체</button>
+      <button type="button" class="filter-tab" data-filter="active">진행 중</button>
+      <button type="button" class="filter-tab" data-filter="completed">완료</button>
+    </div>
+
+    <!-- Todo 항목들이 렌더링될 목록 -->
+    <ul class="todo-list" id="todoList"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
